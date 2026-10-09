@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simula2030 — Seu bolso em 2030</title>
+  <meta name="description" content="Simule o impacto das políticas econômicas de Lula e Bolsonaro no seu salário até 2030. Uma experiência interativa baseada em dados históricos.">
+  <meta property="og:title" content="Simula2030 — Seu bolso em 2030">
+  <meta property="og:description" content="Antes de escolher seu voto, simule a diferença entre Bolsonaro e Lula olhando pro passado.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <button class="header-logo" onclick="goTo(0)" aria-label="Página inicial">Simula<span>2030</span></button>
+  <button class="header-link" onclick="goTo(9)">Metodologia</button>
+</header>
+
+<!-- ═══ SCREEN 0: LANDING ═══ -->
+<div class="screen active" data-screen="0">
+  <div class="container">
+    <div class="screen-content" style="justify-content:center; min-height:90svh; text-align:center;">
+      <div class="anim-fade-up">
+        <h1>Simulador <span class="text-lime">2030</span></h1>
+        <p class="text-gray" style="max-width:480px; margin:1rem auto 0;">Antes de escolher seu voto, simule a diferença entre Bolsonaro e Lula olhando pro passado</p>
+      </div>
+
+      <div class="disclaimer anim-fade d2" style="max-width:480px; margin:0 auto;">
+        <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.8"/></svg>
+        <span>Esta é uma simulação baseada em dados históricos comparando os governos Lula e Bolsonaro e hipóteses econômicas, não uma previsão eleitoral.</span>
+      </div>
+
+      <form id="salary-form" class="anim-fade-up d3" style="max-width:400px; margin:0 auto; width:100%;">
+        <div class="input-group">
+          <label class="input-label" for="salary-input">Quanto você ganha por mês?</label>
+          <div class="input-wrap">
+            <span class="input-prefix">R$</span>
+            <input type="text" id="salary-input" class="input-field" inputmode="numeric" placeholder="0,00" autocomplete="off">
+          </div>
+          <div class="presets" id="presets"></div>
+        </div>
+
+        <div class="input-group" style="margin-top:1rem;">
+          <label class="input-label" for="city-select">Sua cidade (para cesta básica)</label>
+          <select id="city-select" class="select-field">
+            <option value="sao-paulo">São Paulo — SP</option>
+            <option value="rio-de-janeiro">Rio de Janeiro — RJ</option>
+            <option value="belo-horizonte">Belo Horizonte — MG</option>
+            <option value="porto-alegre">Porto Alegre — RS</option>
+            <option value="salvador">Salvador — BA</option>
+            <option value="recife">Recife — PE</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn" disabled style="width:100%; margin-top:1.5rem; padding:1.1rem;">
+          SIMULAR MEU FUTURO
+        </button>
+      </form>
+
+      <p class="text-xs text-gray anim-fade d5" style="margin-top:0.5rem;">Seu salário não será armazenado nem enviado a nenhum servidor.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROGRESS BAR (screens 1-8) ═══ -->
+<div class="progress-wrap" id="progress-wrap" style="display:none;">
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <span class="progress-label" id="progress-label">1/8</span>
+</div>
+
+<!-- ═══ SCREEN 1: Starting Point ═══ -->
+<div class="screen" data-screen="1">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Seu ponto de partida</h2>
+        <p class="text-gray" id="s1-subtitle"></p>
+      </div>
+      <div class="anim-scale d1">
+        <div class="big-number xl text-white" id="s1-big"></div>
+      </div>
+      <div class="grid-3 anim-fade-up d2" id="s1-cards"></div>
+      <div class="disclaimer anim-fade d4">
+        <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.8"/></svg>
+        <span>Este é o ponto de partida da simulação. Os valores projetados assumem que seu salário cresce na mesma proporção do salário mínimo, o que não necessariamente acontece.</span>
+      </div>
+      <p class="source-note anim-fade d5">Salário mínimo vigente em 2026: R$ 1.621. Fonte: Decreto nº 12.797/2025.</p>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(0)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(2)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 2: Lula Projection ═══ -->
+<div class="screen" data-screen="2">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Com Lula, seu salário pode chegar a este valor em 2030.</h2>
+      </div>
+      <div class="anim-scale d1">
+        <div class="big-number xl text-lime" id="s2-big"></div>
+        <p class="text-sm text-gray" style="margin-top:0.25rem;">Salário nominal projetado</p>
+      </div>
+      <div class="grid-3 anim-fade-up d2" id="s2-cards"></div>
+      <p class="text-sm text-gray anim-fade d3">Esta projeção assume que seu salário cresce no mesmo ritmo do salário mínimo durante o governo Lula (jan/2023–ago/2026). A política de valorização do mínimo prevê reajuste acima da inflação.</p>
+      <div class="disclaimer anim-fade d4">
+        <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.8"/></svg>
+        <span>Salários acima do mínimo não são automaticamente reajustados pela política do salário mínimo. O mínimo é a referência mais importante para a maioria dos brasileiros.</span>
+      </div>
+      <p class="source-note anim-fade d5">Base: crescimento do SM no governo Lula (jan/2023–ago/2026). Inflação: IPCA/IBGE.</p>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(1)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(3)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 3: Bolsonaro Projection ═══ -->
+<div class="screen" data-screen="3">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>E se o desempenho de Jair Bolsonaro se repetir?</h2>
+        <p class="text-sm text-gray">Projeção baseada nos indicadores do governo Bolsonaro (jan/2019–ago/2022)</p>
+      </div>
+      <div class="anim-scale d1">
+        <div class="big-number xl text-coral" id="s3-big"></div>
+        <p class="text-sm text-gray" style="margin-top:0.25rem;">Salário nominal projetado</p>
+      </div>
+      <div class="grid-3 anim-fade-up d2" id="s3-cards"></div>
+      <div class="grid-2 anim-fade-up d3" id="s3-compare"></div>
+      <p class="text-sm text-gray anim-fade d4" id="s3-explanation"></p>
+      <p class="source-note anim-fade d5">IBGE — IPCA. Salário mínimo: legislação federal.</p>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(2)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(4)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 4: Purchasing Power ═══ -->
+<div class="screen" data-screen="4">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Não basta ganhar mais. O que importa é quanto você consegue comprar.</h2>
+      </div>
+      <div class="anim-fade-up d1" id="s4-comparisons"></div>
+      <div class="anim-fade-up d3" id="s4-diff-card"></div>
+      <p class="text-sm text-gray anim-fade d4">O poder de compra é o salário nominal dividido pelo índice de preços. Um salário que cresce menos que a inflação representa perda real.</p>
+      <div class="disclaimer anim-fade d5">
+        <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.8"/></svg>
+        <span>Esta comparação usa a inflação geral (IPCA). A inflação sentida no dia a dia pode ser diferente dependendo do perfil de consumo.</span>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(3)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(5)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 5: Cesta Básica ═══ -->
+<div class="screen" data-screen="5">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Quanto pode custar a cesta básica em 2030?</h2>
+      </div>
+      <div class="anim-fade-up d1" id="s5-reference"></div>
+      <div class="grid-2 anim-fade-up d2" id="s5-values"></div>
+      <div class="anim-fade-up d3" id="s5-comparison"></div>
+      <p class="text-sm text-gray anim-fade d4">A cesta básica é projetada com base na inflação dos alimentos observada em cada governo. A inflação de alimentos costuma ser diferente da inflação geral.</p>
+      <p class="source-note anim-fade d5" id="s5-source"></p>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(4)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(6)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 6: Food Inflation Chart ═══ -->
+<div class="screen" data-screen="6">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>O que aconteceu com os preços dos alimentos?</h2>
+        <p class="text-sm text-gray">Inflação acumulada por categoria em cada governo</p>
+      </div>
+      <div class="anim-fade-up d1" id="s6-chart"></div>
+      <p class="text-sm text-gray anim-fade d3">Fatores como pandemia (2020-2021), guerra na Ucrânia (2022), câmbio e políticas de subsídios também influenciam os preços, além das decisões do governo federal.</p>
+      <p class="source-note anim-fade d4">IBGE — IPCA. Período Bolsonaro: jan/2019–ago/2022. Período Lula: jan/2023–ago/2026. <a href="https://sidra.ibge.gov.br/tabela/7060" target="_blank">SIDRA</a></p>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(5)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(7)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 7: Cesta % of Salary ═══ -->
+<div class="screen" data-screen="7">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Quanto do seu salário pode ficar no supermercado?</h2>
+      </div>
+      <div class="anim-fade-up d1" id="s7-comparison"></div>
+      <div class="grid-3 anim-fade-up d2" id="s7-cards"></div>
+      <p class="text-sm text-gray anim-fade d4">A cesta básica do DIEESE cobre alimentação básica para uma pessoa adulta. Gastos reais de supermercado de uma família costumam ser maiores.</p>
+      <div class="disclaimer anim-fade d5">
+        <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.8"/></svg>
+        <span>A cesta básica do DIEESE é uma referência de alimentação básica, não uma estimativa completa dos gastos de supermercado de todas as famílias.</span>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(6)">VOLTAR</button>
+        <button class="btn btn-primary" onclick="goTo(8)">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 8: Final Summary ═══ -->
+<div class="screen" data-screen="8">
+  <div class="container">
+    <div class="screen-content">
+      <div class="anim-fade-up">
+        <h2>Seu bolso em 2030</h2>
+        <p class="text-sm text-gray">Resumo da simulação</p>
+      </div>
+      <div class="columns anim-fade-up d1" id="s8-columns"></div>
+      <div class="divider anim-fade-up d3" id="s8-diff"></div>
+      <div class="anim-fade-up d4" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="shareResult()" id="share-btn">COMPARTILHAR RESULTADO</button>
+        <button class="btn btn-ghost" onclick="goTo(0)">RECALCULAR</button>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" onclick="goTo(7)">VOLTAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 9: Methodology ═══ -->
+<div class="screen" data-screen="9">
+  <div class="container">
+    <div class="screen-content" style="gap:1rem;">
+      <button class="btn btn-ghost" onclick="goBack()" style="align-self:flex-start;">← VOLTAR AO SIMULADOR</button>
+      <div class="anim-fade-up">
+        <h1 style="font-size:clamp(1.8rem,5vw,3rem);">Como calculamos</h1>
+        <p class="text-gray">Metodologia, dados e limitações desta simulação.</p>
+      </div>
+      <div id="methodology-sections" style="display:flex; flex-direction:column; gap:0.75rem;"></div>
+      <button class="btn btn-primary" onclick="goBack()" style="margin-top:1rem;">← VOLTAR AO SIMULADOR</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

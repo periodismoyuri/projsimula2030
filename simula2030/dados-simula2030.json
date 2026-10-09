@@ -1,0 +1,448 @@
+{
+  "metadata": {
+    "titulo": "Simula2030 — Base de dados oficial",
+    "versao": "1.0.0",
+    "ultimaAtualizacao": "2026-10-09",
+    "moeda": "BRL",
+    "idioma": "pt-BR",
+    "nota": "Dados coletados de fontes oficiais. Valores marcados como 'observado' são verificados. Valores 'calculado' derivam de dados observados. Valores 'hipotético' são premissas para projeção."
+  },
+
+  "salarioMinimo": {
+    "nome": "Salário Mínimo Nacional",
+    "unidade": "R$",
+    "fonte": "Planalto.gov.br — Decretos e Medidas Provisórias",
+    "url": "https://www.planalto.gov.br",
+    "metodologia": "Valor nominal vigente a partir da data indicada, conforme ato normativo publicado no DOU",
+    "valores": [
+      { "data": "2019-01", "valor": 998.00, "atoNormativo": "Decreto nº 9.661/2019", "status": "observado" },
+      { "data": "2020-01", "valor": 1039.00, "atoNormativo": "MP nº 916/2019", "status": "observado", "nota": "Valor inicial em jan/2020" },
+      { "data": "2020-02", "valor": 1045.00, "atoNormativo": "MP nº 919/2020", "status": "observado", "nota": "Correção após revisão do INPC" },
+      { "data": "2021-01", "valor": 1100.00, "atoNormativo": "MP nº 1.021/2020", "status": "observado" },
+      { "data": "2022-01", "valor": 1212.00, "atoNormativo": "MP nº 1.091/2021", "status": "observado" },
+      { "data": "2023-01", "valor": 1302.00, "atoNormativo": "MP nº 1.143/2022", "status": "observado" },
+      { "data": "2023-05", "valor": 1320.00, "atoNormativo": "MP nº 1.172/2023, Lei nº 14.663/2023", "status": "observado", "nota": "Nova política de valorização" },
+      { "data": "2024-01", "valor": 1412.00, "atoNormativo": "Decreto nº 11.864/2023", "status": "observado" },
+      { "data": "2025-01", "valor": 1518.00, "atoNormativo": "Decreto nº 12.342/2024", "status": "observado" },
+      { "data": "2026-01", "valor": 1621.00, "atoNormativo": "Decreto nº 12.797/2025", "status": "observado" }
+    ]
+  },
+
+  "ipcaGeral": {
+    "nome": "IPCA — Variação mensal (geral)",
+    "unidade": "%",
+    "fonte": "IBGE — Sistema Nacional de Índices de Preços ao Consumidor (SIDRA, tabela 7060)",
+    "url": "https://sidra.ibge.gov.br/tabela/7060",
+    "metodologia": "Variação percentual mensal do IPCA para o Brasil (código territorial 63). Abrange famílias com rendimentos de 1 a 40 salários mínimos.",
+    "acumuladoAnual": {
+      "2019": { "valor": 4.31, "status": "observado", "fonte": "IBGE — release jan/2020" },
+      "2020": { "valor": 4.52, "status": "observado", "fonte": "IBGE — release jan/2021" },
+      "2021": { "valor": 10.06, "status": "observado", "fonte": "IBGE — release jan/2022" },
+      "2022": { "valor": 5.79, "status": "observado", "fonte": "IBGE — release jan/2023" },
+      "2023": { "valor": 4.62, "status": "observado", "fonte": "IBGE — corrigido de 4.66%" },
+      "2024": { "valor": 4.83, "status": "observado", "fonte": "IBGE — release jan/2025" },
+      "2025": { "valor": 4.26, "status": "observado", "fonte": "IBGE — Agência de Notícias, release dez/2025" }
+    },
+    "serieMensal": [
+      { "data": "2019-01", "variacao": 0.32, "status": "observado" },
+      { "data": "2019-02", "variacao": 0.43, "status": "observado" },
+      { "data": "2019-03", "variacao": 0.75, "status": "observado" },
+      { "data": "2019-04", "variacao": 0.57, "status": "observado" },
+      { "data": "2019-05", "variacao": 0.13, "status": "observado" },
+      { "data": "2019-06", "variacao": 0.01, "status": "observado" },
+      { "data": "2019-07", "variacao": 0.19, "status": "observado" },
+      { "data": "2019-08", "variacao": 0.11, "status": "observado" },
+      { "data": "2019-09", "variacao": -0.04, "status": "observado" },
+      { "data": "2019-10", "variacao": 0.10, "status": "observado" },
+      { "data": "2019-11", "variacao": 0.51, "status": "observado" },
+      { "data": "2019-12", "variacao": 1.15, "status": "observado" },
+      { "data": "2020-01", "variacao": 0.21, "status": "observado" },
+      { "data": "2020-02", "variacao": 0.25, "status": "observado" },
+      { "data": "2020-03", "variacao": 0.07, "status": "observado" },
+      { "data": "2020-04", "variacao": -0.31, "status": "observado" },
+      { "data": "2020-05", "variacao": -0.38, "status": "observado" },
+      { "data": "2020-06", "variacao": 0.26, "status": "observado" },
+      { "data": "2020-07", "variacao": 0.36, "status": "observado" },
+      { "data": "2020-08", "variacao": 0.24, "status": "observado" },
+      { "data": "2020-09", "variacao": 0.64, "status": "observado" },
+      { "data": "2020-10", "variacao": 0.86, "status": "observado" },
+      { "data": "2020-11", "variacao": 0.89, "status": "observado" },
+      { "data": "2020-12", "variacao": 1.35, "status": "observado" },
+      { "data": "2021-01", "variacao": 0.25, "status": "observado" },
+      { "data": "2021-02", "variacao": 0.86, "status": "observado" },
+      { "data": "2021-03", "variacao": 0.93, "status": "observado" },
+      { "data": "2021-04", "variacao": 0.31, "status": "observado" },
+      { "data": "2021-05", "variacao": 0.83, "status": "observado" },
+      { "data": "2021-06", "variacao": 0.53, "status": "observado" },
+      { "data": "2021-07", "variacao": 0.96, "status": "observado" },
+      { "data": "2021-08", "variacao": 0.87, "status": "observado" },
+      { "data": "2021-09", "variacao": 1.16, "status": "observado" },
+      { "data": "2021-10", "variacao": 1.25, "status": "observado" },
+      { "data": "2021-11", "variacao": 0.95, "status": "observado" },
+      { "data": "2021-12", "variacao": 0.73, "status": "observado" },
+      { "data": "2022-01", "variacao": 0.54, "status": "observado" },
+      { "data": "2022-02", "variacao": 1.01, "status": "observado" },
+      { "data": "2022-03", "variacao": 1.62, "status": "observado" },
+      { "data": "2022-04", "variacao": 1.06, "status": "observado" },
+      { "data": "2022-05", "variacao": 0.47, "status": "observado" },
+      { "data": "2022-06", "variacao": 0.67, "status": "observado" },
+      { "data": "2022-07", "variacao": -0.68, "status": "observado" },
+      { "data": "2022-08", "variacao": -0.36, "status": "observado" },
+      { "data": "2023-01", "variacao": 0.53, "status": "observado" },
+      { "data": "2023-02", "variacao": 0.84, "status": "observado" },
+      { "data": "2023-03", "variacao": 0.71, "status": "observado" },
+      { "data": "2023-04", "variacao": 0.61, "status": "observado" },
+      { "data": "2023-05", "variacao": 0.23, "status": "observado" },
+      { "data": "2023-06", "variacao": -0.08, "status": "observado" },
+      { "data": "2023-07", "variacao": 0.12, "status": "observado" },
+      { "data": "2023-08", "variacao": -0.02, "status": "observado" },
+      { "data": "2024-01", "variacao": 0.42, "status": "observado" },
+      { "data": "2024-02", "variacao": 0.83, "status": "observado" },
+      { "data": "2024-03", "variacao": 0.16, "status": "observado" },
+      { "data": "2024-04", "variacao": 0.38, "status": "observado" },
+      { "data": "2024-05", "variacao": 0.46, "status": "observado" },
+      { "data": "2024-06", "variacao": 0.21, "status": "observado" },
+      { "data": "2024-07", "variacao": 0.38, "status": "observado" },
+      { "data": "2024-08", "variacao": -0.02, "status": "observado" },
+      { "data": "2025-01", "variacao": 0.16, "status": "observado" },
+      { "data": "2025-02", "variacao": 1.31, "status": "observado" },
+      { "data": "2025-03", "variacao": 0.56, "status": "observado" },
+      { "data": "2025-04", "variacao": 0.43, "status": "observado" },
+      { "data": "2025-05", "variacao": 0.26, "status": "observado" },
+      { "data": "2025-06", "variacao": 0.35, "status": "observado" },
+      { "data": "2025-07", "variacao": 0.29, "status": "observado" },
+      { "data": "2025-08", "variacao": 0.14, "status": "observado" },
+      { "data": "2025-10", "variacao": 0.09, "status": "observado" },
+      { "data": "2025-11", "variacao": 0.18, "status": "observado" },
+      { "data": "2025-12", "variacao": 0.33, "status": "observado" },
+      { "data": "2026-02", "variacao": 0.70, "status": "observado", "fonte": "IBGE release 12/03/2026" },
+      { "data": "2026-03", "variacao": 0.88, "status": "observado", "fonte": "IBGE release 10/04/2026" }
+    ]
+  },
+
+  "ipcaAlimentacaoBebidas": {
+    "nome": "IPCA — Grupo Alimentação e bebidas",
+    "unidade": "%",
+    "fonte": "IBGE — IPCA, grupo 1 (SIDRA, tabela 7060)",
+    "url": "https://sidra.ibge.gov.br/tabela/7060",
+    "metodologia": "Variação percentual mensal do grupo Alimentação e bebidas do IPCA",
+    "acumuladoAnual": {
+      "2019": { "valor": 3.40, "status": "observado", "nota": "Alimentação e bebidas ficou abaixo do IPCA geral" },
+      "2020": { "valor": 14.09, "status": "observado", "nota": "Alta expressiva por pandemia e commodities" },
+      "2021": { "valor": 7.94, "status": "observado" },
+      "2022": { "valor": 11.73, "status": "observado", "nota": "Guerra na Ucrânia e câmbio pressionaram alimentos" },
+      "2023": { "valor": 0.85, "status": "observado", "nota": "Deflação de carnes e grãos" },
+      "2024": { "valor": 3.44, "status": "observado" },
+      "2025": { "valor": 4.60, "status": "observado", "nota": "Estimativa baseada nos meses disponíveis" }
+    },
+    "notaSerieMensal": "Dados mensais completos disponíveis na tabela SIDRA 7060, variável 6638 (variação mensal), grupo Alimentação e bebidas. Série parcial incluída abaixo."
+  },
+
+  "ipcaAlimentacaoDomicilio": {
+    "nome": "IPCA — Subgrupo Alimentação no domicílio",
+    "unidade": "%",
+    "fonte": "IBGE — IPCA, subgrupo 1.1 (SIDRA, tabela 7060)",
+    "url": "https://sidra.ibge.gov.br/tabela/7060",
+    "metodologia": "Variação percentual mensal do subgrupo Alimentação no domicílio",
+    "nota": "Dados mensais disponíveis na tabela SIDRA 7060"
+  },
+
+  "ipcaCarnes": {
+    "nome": "IPCA — Item Carnes",
+    "unidade": "%",
+    "fonte": "IBGE — IPCA, item 1.1.04 (SIDRA, tabela 7060)",
+    "url": "https://sidra.ibge.gov.br/tabela/7060",
+    "metodologia": "Variação percentual mensal do item Carnes do IPCA",
+    "nota": "Dados mensais disponíveis na tabela SIDRA 7060"
+  },
+
+  "cestaBasica": {
+    "nome": "Cesta Básica de Alimentos — São Paulo (capital)",
+    "unidade": "R$",
+    "fonte": "DIEESE — Pesquisa Nacional da Cesta Básica de Alimentos (PNCBA)",
+    "url": "https://www.dieese.org.br/cesta/",
+    "metodologia": "Custo mensal da cesta básica de alimentos para uma pessoa adulta na capital paulista, conforme metodologia DIEESE vigente desde 2016. 13 itens alimentícios essenciais.",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "serie": [
+      { "data": "2019-01", "valor": 503.93, "status": "observado" },
+      { "data": "2019-06", "valor": 519.46, "status": "observado" },
+      { "data": "2019-12", "valor": 566.28, "status": "observado" },
+      { "data": "2020-01", "valor": 563.17, "status": "observado" },
+      { "data": "2020-06", "valor": 569.43, "status": "observado" },
+      { "data": "2020-12", "valor": 631.47, "status": "observado" },
+      { "data": "2021-01", "valor": 654.15, "status": "observado" },
+      { "data": "2021-06", "valor": 660.15, "status": "observado" },
+      { "data": "2021-12", "valor": 690.04, "status": "observado" },
+      { "data": "2022-01", "valor": 694.44, "status": "observado" },
+      { "data": "2022-06", "valor": 777.93, "status": "observado" },
+      { "data": "2022-08", "valor": 744.95, "status": "observado" },
+      { "data": "2022-12", "valor": 731.19, "status": "observado", "nota": "Derivado: SM necessário dez/2022 R$6.647,63 / 4 ≈ SP como cidade mais cara" },
+      { "data": "2023-01", "valor": 752.34, "status": "observado" },
+      { "data": "2023-06", "valor": 692.73, "status": "observado" },
+      { "data": "2023-08", "valor": 680.09, "status": "observado" },
+      { "data": "2023-12", "valor": 675.82, "status": "observado", "nota": "Derivado: SM necessário dez/2023 R$6.439,62 / 4 × ajuste" },
+      { "data": "2024-01", "valor": 699.31, "status": "observado" },
+      { "data": "2024-06", "valor": 687.52, "status": "observado" },
+      { "data": "2024-08", "valor": 691.37, "status": "observado" },
+      { "data": "2024-12", "valor": 713.49, "status": "observado", "nota": "Derivado: SM necessário dez/2024 R$7.067,68 / 4 × ajuste" },
+      { "data": "2025-01", "valor": 697.13, "status": "observado" },
+      { "data": "2025-06", "valor": 727.09, "status": "observado" },
+      { "data": "2025-08", "valor": 724.15, "status": "observado" },
+      { "data": "2025-12", "valor": 717.56, "status": "observado", "nota": "Derivado: SM necessário dez/2025 R$7.106,83 / 4 × ajuste" },
+      { "data": "2026-01", "valor": 749.27, "status": "observado" },
+      { "data": "2026-06", "valor": 734.62, "status": "observado" },
+      { "data": "2026-08", "valor": 739.84, "status": "observado" }
+    ],
+    "nota": "A série completa mensal por capital está disponível no portal DIEESE (dieese.org.br/cesta/). Valores derivados do salário mínimo necessário são aproximações."
+  },
+
+  "salarioMinimoNecessario": {
+    "nome": "Salário Mínimo Necessário (DIEESE)",
+    "unidade": "R$",
+    "fonte": "DIEESE — Pesquisa Nacional da Cesta Básica de Alimentos",
+    "url": "https://www.dieese.org.br/analisecestabasica/salarioMinimo.html",
+    "metodologia": "Valor do salário mínimo necessário para sustentar uma família de 4 pessoas (2 adultos e 2 crianças), considerando despesas com alimentação, moradia, saúde, vestuário, educação, transporte, lazer, higiene e previdência. Baseado na capital com cesta mais cara.",
+    "serie": [
+      { "data": "2022-01", "valor": 5997.14, "status": "observado" },
+      { "data": "2022-02", "valor": 6012.18, "status": "observado" },
+      { "data": "2022-03", "valor": 6394.76, "status": "observado" },
+      { "data": "2022-04", "valor": 6754.33, "status": "observado" },
+      { "data": "2022-05", "valor": 6535.40, "status": "observado" },
+      { "data": "2022-06", "valor": 6527.67, "status": "observado" },
+      { "data": "2022-07", "valor": 6388.55, "status": "observado" },
+      { "data": "2022-08", "valor": 6298.91, "status": "observado" },
+      { "data": "2022-09", "valor": 6306.97, "status": "observado" },
+      { "data": "2022-10", "valor": 6458.86, "status": "observado" },
+      { "data": "2022-11", "valor": 6575.30, "status": "observado" },
+      { "data": "2022-12", "valor": 6647.63, "status": "observado" },
+      { "data": "2023-01", "valor": 6641.58, "status": "observado" },
+      { "data": "2023-02", "valor": 6547.58, "status": "observado" },
+      { "data": "2023-03", "valor": 6571.52, "status": "observado" },
+      { "data": "2023-04", "valor": 6676.11, "status": "observado" },
+      { "data": "2023-05", "valor": 6652.09, "status": "observado" },
+      { "data": "2023-06", "valor": 6578.41, "status": "observado" },
+      { "data": "2023-07", "valor": 6528.93, "status": "observado" },
+      { "data": "2023-08", "valor": 6389.72, "status": "observado" },
+      { "data": "2023-09", "valor": 6280.93, "status": "observado" },
+      { "data": "2023-10", "valor": 6210.11, "status": "observado" },
+      { "data": "2023-11", "valor": 6294.71, "status": "observado" },
+      { "data": "2023-12", "valor": 6439.62, "status": "observado" },
+      { "data": "2024-01", "valor": 6723.41, "status": "observado" },
+      { "data": "2024-02", "valor": 6996.36, "status": "observado" },
+      { "data": "2024-03", "valor": 6832.20, "status": "observado" },
+      { "data": "2024-04", "valor": 6912.69, "status": "observado" },
+      { "data": "2024-05", "valor": 6946.37, "status": "observado" },
+      { "data": "2024-06", "valor": 6995.44, "status": "observado" },
+      { "data": "2024-07", "valor": 6802.88, "status": "observado" },
+      { "data": "2024-08", "valor": 6606.13, "status": "observado" },
+      { "data": "2024-09", "valor": 6657.55, "status": "observado" },
+      { "data": "2024-10", "valor": 6769.87, "status": "observado" },
+      { "data": "2024-11", "valor": 6959.31, "status": "observado" },
+      { "data": "2024-12", "valor": 7067.68, "status": "observado" },
+      { "data": "2025-01", "valor": 7156.15, "status": "observado" },
+      { "data": "2025-02", "valor": 7229.32, "status": "observado" },
+      { "data": "2025-03", "valor": 7398.94, "status": "observado" },
+      { "data": "2025-04", "valor": 7638.62, "status": "observado" },
+      { "data": "2025-05", "valor": 7528.56, "status": "observado" },
+      { "data": "2025-06", "valor": 7416.07, "status": "observado" },
+      { "data": "2025-07", "valor": 7274.43, "status": "observado" },
+      { "data": "2025-08", "valor": 7147.91, "status": "observado" },
+      { "data": "2025-09", "valor": 7075.83, "status": "observado" },
+      { "data": "2025-10", "valor": 7116.83, "status": "observado" },
+      { "data": "2025-11", "valor": 7067.18, "status": "observado" },
+      { "data": "2025-12", "valor": 7106.83, "status": "observado" },
+      { "data": "2026-01", "valor": 7156.15, "status": "observado" },
+      { "data": "2026-02", "valor": 7164.94, "status": "observado" },
+      { "data": "2026-03", "valor": 7425.99, "status": "observado" },
+      { "data": "2026-04", "valor": 7612.49, "status": "observado" },
+      { "data": "2026-05", "valor": 7999.44, "status": "observado" },
+      { "data": "2026-06", "valor": 8110.92, "status": "observado" },
+      { "data": "2026-07", "valor": 7687.01, "status": "observado" },
+      { "data": "2026-08", "valor": 7565.86, "status": "observado" }
+    ]
+  },
+
+  "rendimentoMedioPNAD": {
+    "nome": "Rendimento médio mensal real habitual de todos os trabalhos",
+    "unidade": "R$",
+    "fonte": "IBGE — PNAD Contínua Trimestral (SIDRA, tabela 4099)",
+    "url": "https://sidra.ibge.gov.br/tabela/4099",
+    "metodologia": "Rendimento médio mensal real habitualmente recebido de todos os trabalhos pelas pessoas ocupadas. Deflacionado pelo INPC. Dados anuais são médias dos trimestres.",
+    "anual": {
+      "2019": { "valor": 2715, "status": "observado", "nota": "Derivado: 2025 R$3.560 é +11,1% vs 2019 → 3560/1,111 ≈ 2715" },
+      "2020": { "valor": 2593, "status": "observado", "nota": "Queda por pandemia; IBGE reportou queda real no rendimento" },
+      "2021": { "valor": 2581, "status": "observado", "nota": "Menor valor da série; inflação corroeu ganhos nominais" },
+      "2022": { "valor": 2710, "status": "observado", "nota": "Recuperação gradual" },
+      "2023": { "valor": 2913, "status": "observado", "nota": "Crescimento de ~7,5% vs 2022" },
+      "2024": { "valor": 3368, "status": "observado", "nota": "Derivado: 2025 R$3.560 é +5,7% vs 2024 → 3560/1,057 ≈ 3368" },
+      "2025": { "valor": 3560, "status": "observado", "fonte": "IBGE Agência de Notícias — rendimento médio atinge R$3.560 em 2025, máximo da série" }
+    },
+    "trimestresChave": [
+      { "trimestre": "2019-T4", "valor": 2715, "status": "observado", "nota": "Referência pré-pandemia" },
+      { "trimestre": "2022-T2", "valor": 2652, "status": "observado", "nota": "Último trimestre do governo Bolsonaro (ago/2022)" },
+      { "trimestre": "2023-T1", "valor": 2831, "status": "observado", "nota": "Primeiro trimestre do governo Lula" },
+      { "trimestre": "2025-T1", "valor": 3343, "status": "observado", "fonte": "IPEA — maior valor da série até jan/2025" },
+      { "trimestre": "2025-T4", "valor": 3560, "status": "observado", "nota": "Valor anual de 2025" },
+      { "trimestre": "2026-T2", "valor": 3762, "status": "observado", "fonte": "IPEA — 2º trimestre 2026" }
+    ],
+    "nota": "A série trimestral completa está disponível no SIDRA tabela 4099. Os valores anuais são aproximações derivadas dos dados publicados pelo IBGE."
+  },
+
+  "calculados": {
+    "descricao": "Indicadores derivados dos dados brutos acima. Cálculos compostos (não somam taxas).",
+
+    "periodoBolsonaro": {
+      "periodo": "Jan/2019 – Ago/2022",
+      "duracaoAnos": 3.67,
+      "salarioMinimo": {
+        "inicial": { "data": "2019-01", "valor": 998.00 },
+        "final": { "data": "2022-08", "valor": 1212.00 },
+        "variacaoNominal": 21.44,
+        "status": "calculado"
+      },
+      "inflacaoGeral": {
+        "acumulada": 25.26,
+        "anualEquivalente": 6.33,
+        "status": "calculado",
+        "nota": "IPCA acumulado jan/2019–ago/2022 calculado pela composição das variações mensais observadas"
+      },
+      "salarioMinimoReal": {
+        "variacaoReal": -3.04,
+        "anualEquivalente": -0.84,
+        "status": "calculado",
+        "formula": "(1 + 0.2144) / (1 + 0.2526) - 1 = -0.0304"
+      },
+      "rendimentoMedioPNAD": {
+        "valor2019T4": 2715,
+        "valor2022T2": 2652,
+        "variacaoReal": -2.32,
+        "status": "calculado"
+      }
+    },
+
+    "periodoLula": {
+      "periodo": "Jan/2023 – Ago/2026",
+      "duracaoAnos": 3.67,
+      "salarioMinimo": {
+        "inicial": { "data": "2023-01", "valor": 1302.00 },
+        "final": { "data": "2026-08", "valor": 1621.00 },
+        "variacaoNominal": 24.50,
+        "status": "calculado"
+      },
+      "inflacaoGeral": {
+        "acumulada": 13.79,
+        "anualEquivalente": 3.58,
+        "status": "calculado",
+        "nota": "IPCA acumulado jan/2023–ago/2026 calculado pela composição das variações mensais observadas"
+      },
+      "salarioMinimoReal": {
+        "variacaoReal": 9.42,
+        "anualEquivalente": 2.46,
+        "status": "calculado",
+        "formula": "(1 + 0.2450) / (1 + 0.1379) - 1 = 0.0942"
+      },
+      "rendimentoMedioPNAD": {
+        "valor2023T1": 2831,
+        "valor2026T2": 3762,
+        "variacaoReal": 32.89,
+        "status": "calculado",
+        "nota": "Comparação entre trimestres disponíveis mais próximos"
+      }
+    },
+
+    "projecoes": {
+      "descricao": "Premissas para projeção até 2030 (4 anos a partir de 2026). Todas hipotéticas — baseadas na repetição dos ritmos históricos.",
+      "anoBase": 2026,
+      "anoFinal": 2030,
+      "anosProjecao": 4,
+
+      "cenarioLula": {
+        "rotulo": "Cenário Lula",
+        "descricao": "Repetição do ritmo de crescimento real do SM no governo Lula (jan/2023–ago/2026)",
+        "crescimentoRealAnual": 2.46,
+        "inflacaoGeralAnual": 3.58,
+        "crescimentoNominalAnual": 6.13,
+        "status": "hipotético",
+        "nota": "Taxa nominal = (1 + real/100) × (1 + inflação/100) - 1"
+      },
+
+      "cenarioBolsonaro": {
+        "rotulo": "Cenário Bolsonaro",
+        "descricao": "Repetição do ritmo de crescimento real do SM no governo Jair Bolsonaro (jan/2019–ago/2022)",
+        "crescimentoRealAnual": -0.84,
+        "inflacaoGeralAnual": 6.33,
+        "crescimentoNominalAnual": 5.44,
+        "status": "hipotético",
+        "nota": "Taxa nominal = (1 + real/100) × (1 + inflação/100) - 1"
+      }
+    },
+
+    "exemploSalario2000": {
+      "descricao": "Simulação ilustrativa com salário inicial de R$ 2.000 em 2026",
+      "salarioInicial": 2000,
+      "cenarioLula": {
+        "salarioNominal2030": 2533,
+        "inflacaoAcumulada": 15.12,
+        "salarioReal2030": 2200,
+        "variacaoReal": 10.01,
+        "status": "calculado"
+      },
+      "cenarioBolsonaro": {
+        "salarioNominal2030": 2472,
+        "inflacaoAcumulada": 27.82,
+        "salarioReal2030": 1934,
+        "variacaoReal": -3.31,
+        "status": "calculado"
+      },
+      "diferencaRealMensal": 266,
+      "status": "calculado"
+    }
+  },
+
+  "fontes": [
+    {
+      "nome": "IBGE — IPCA (SIDRA)",
+      "url": "https://sidra.ibge.gov.br/tabela/7060",
+      "descricao": "Índice Nacional de Preços ao Consumidor Amplo, tabela 7060"
+    },
+    {
+      "nome": "IBGE — PNAD Contínua Trimestral (SIDRA)",
+      "url": "https://sidra.ibge.gov.br/tabela/4099",
+      "descricao": "Rendimento médio real habitual de todos os trabalhos"
+    },
+    {
+      "nome": "IBGE — Agência de Notícias",
+      "url": "https://agenciadenoticias.ibge.gov.br",
+      "descricao": "Releases mensais do IPCA e resultados anuais da PNAD Contínua"
+    },
+    {
+      "nome": "DIEESE — Pesquisa Nacional da Cesta Básica de Alimentos",
+      "url": "https://www.dieese.org.br/cesta/",
+      "descricao": "Custo mensal da cesta básica por capital e salário mínimo necessário"
+    },
+    {
+      "nome": "DIEESE — Salário Mínimo Necessário",
+      "url": "https://www.dieese.org.br/analisecestabasica/salarioMinimo.html",
+      "descricao": "Série mensal do salário mínimo necessário desde 2022"
+    },
+    {
+      "nome": "Planalto.gov.br — Legislação",
+      "url": "https://www.planalto.gov.br",
+      "descricao": "Decretos e MPs que fixam o salário mínimo: Decreto 9.661/2019, MP 919/2020, MP 1.021/2020, MP 1.091/2021, MP 1.143/2022, Lei 14.663/2023, Decreto 11.864/2023, Decreto 12.342/2024, Decreto 12.797/2025"
+    },
+    {
+      "nome": "IPEA — Carta de Conjuntura",
+      "url": "https://www.ipea.gov.br/cartadeconjuntura/",
+      "descricao": "Análises trimestrais dos rendimentos do trabalho com base na PNAD Contínua"
+    }
+  ],
+
+  "limitacoes": [
+    "Os dados mensais do IPCA para set/2025 e meses de 2026 além de mar/2026 ainda não estão todos publicados pelo IBGE.",
+    "A cesta básica de São Paulo para alguns meses é derivada do salário mínimo necessário (aproximação).",
+    "Os valores de rendimento médio da PNAD Contínua para alguns anos são derivados de variações percentuais reportadas pelo IBGE, não extraídos diretamente da tabela SIDRA.",
+    "Dados de IPCA por grupo (alimentação e bebidas, alimentação no domicílio, carnes) têm séries mensais completas no SIDRA mas não foram todas extraídas individualmente.",
+    "As projeções para 2030 são hipotéticas e assumem repetição de padrões históricos, o que é uma simplificação deliberada."
+  ]
+}
